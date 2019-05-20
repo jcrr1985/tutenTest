@@ -28,20 +28,17 @@ export class AppComponent implements OnInit, AfterViewInit  {
   }
 
   ngAfterViewInit() {
-anime({
-  targets: 'mat-card',
-  scale: [
-    {value: .1, easing: 'easeOutSine', duration: 500},
-    {value: 1, easing: 'easeInOutQuad', duration: 1200}
-  ],
-rotateZ: anime.stagger([0, 90], {grid: [14, 5], from: 'center', axis: 'x'}),
-  delay: anime.stagger(200, { grid: [14, 5], from: 'center' }),
-  direction: 'alternate'
-});
-
-
+    anime({
+      targets: 'mat-card',
+      scale: [
+        {value: .1, easing: 'easeOutSine', duration: 500},
+        {value: 1, easing: 'easeInOutQuad', duration: 1200}
+      ],
+    rotateZ: anime.stagger([0, 90], {grid: [14, 5], from: 'center', axis: 'x'}),
+      delay: anime.stagger(200, { grid: [14, 5], from: 'center' }),
+      direction: 'alternate'
+    });
 }
-
 
   change(x) {
     if (x.value === 'over') {
@@ -60,6 +57,5 @@ rotateZ: anime.stagger([0, 90], {grid: [14, 5], from: 'center', axis: 'x'}),
       }
     }
   }
-
 }
 
