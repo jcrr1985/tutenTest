@@ -116,7 +116,7 @@ Todos los precios,
 Precio mayor de 2000,
 Precio menor de 2000.
 
-Estas opciones están en contenidas en un elemento <select> con sus correspondientes <option>.
+Estas opciones están en contenidas en un elemento "select" con sus correspondientes "option"s.
   
   Dicho select posee un metodo (change), el cual dependiendo de la opción seleccionada, ejecuta un metodo llamado "change" que recibe como parametro el valor del select mediante la referencia #select mecionada previamente:
   
