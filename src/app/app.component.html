@@ -1,21 +1,94 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-toolbar id="header" color="primary" fxLayoutAlign="center center">
+    <h1>Datos del personal ingresado en el primer trimestre 2019 </h1>
+</mat-toolbar>
 
-<router-outlet></router-outlet>
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+
+
+    <button class="title" mat-button [matMenuTriggerFor]="personal"><h1>Datos
+            Clientes</h1></button>
+    <mat-menu #personal="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="fromAPI">From API</button>
+        <button mat-menu-item [matMenuTriggerFor]="inventado">Inventado</button>
+    </mat-menu>
+
+    <img id="hand" src="../assets/hand.svg" alt="up hand">
+
+    <mat-menu #fromAPI="matMenu" class="matMenuDad">
+        <mat-card *ngFor="let person of dataArray; let i= index">
+            <div class="dataWrapper">
+                <h4>BookingId:</h4>
+                <span>{{person.bookingId}}</span>
+            </div>
+
+            <div class="dataWrapper">
+                <h4>Cliente:</h4>
+                <span>{{person.locationId.tutenUser.firstName +" "+
+                    person.locationId.tutenUser.lastName}}</span>
+            </div>
+
+            <div class="dataWrapper">
+                <h4>Fecha de Creación:</h4>
+                <span>{{person.bookingTime}}</span>
+            </div>
+
+            <div class="dataWrapper">
+                <h4>Dirección:</h4>
+                <span>{{person.locationId.streetAddress}}</span>
+            </div>
+
+            <div class="dataWrapper">
+                <h4>Precio:</h4>
+                <span>{{person.bookingPrice}}</span>
+            </div>
+
+        </mat-card>
+    </mat-menu>
+
+    <mat-menu #inventado="matMenu">
+        <button mat-menu-item>Datos X</button>
+    </mat-menu>
+
+
+
+    <div class="mat-card-wrapper">
+        <ng-container *ngFor="let person of
+            dataArray">
+            <mat-card class="bigCards" #maty *ngIf="person.visible == true">
+                <mat-card-title-group>
+
+                    <mat-card-subtitle>
+                        <span class="boldy">BookingId:</span>
+                        <span>
+                            {{person.bookingId}}
+                        </span>
+                        <span class="boldy"> Cliente:</span>
+                        <span>
+                            {{person.locationId.tutenUser.firstName +" "+
+                            person.locationId.tutenUser.lastName}}
+                        </span>
+                        <span class="boldy">Fecha de Creación</span>
+                        <span>{{person.bookingTime | date}}</span>
+                        <span class="boldy">Dirección</span>
+                        <span>{{person.locationId.streetAddress}}</span>
+                        <span class="boldy">Precio</span>
+                        <span>{{person.bookingPrice}}</span>
+                    </mat-card-subtitle>
+                </mat-card-title-group>
+            </mat-card>
+        </ng-container>
+    </div>
+
+    <select class="pricePicker" #slct name="" (change)="change(slct)">
+        <option value="z">Seleccionar Precio</option>
+        <option value="allprices"> todos los precios</option>
+        <option value="over">Precio mayor de 2000</option>
+        <option value="under">Precio menor de 2000</option>
+    </select>
+
+
+</div>
+<mat-toolbar id="footer" color="primary" fxLayoutAlign="center center">
+    <p>&copy Reserva de derechos. Tuten</p>
+</mat-toolbar>

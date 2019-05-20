@@ -1,0 +1,120 @@
+@font-face {
+    font-family: pls;
+    src: url("../assets/PlaylistScript.otf") format("opentype");
+}
+
+$mainBlack: #333;
+.title {
+    padding: 10px;
+    font-family: Roboto;
+    animation: glow 2s linear infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        background-color: rgba($color: rgb(51, 1, 45), $alpha: .3);
+        transform: scale(1);
+        color: $mainBlack;
+    }
+    100% {
+        background-color: rgba($color: rgb(51, 1, 45), $alpha: .7);
+        transform: scale(.997);
+        color: #fff;
+    }
+}
+
+#header {
+    h1 {
+        font-family: pls;
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+}
+
+.container {
+    margin: 20px;
+    display: flex;
+    .alphied {
+        background-color: rgba($color: purple, $alpha: .5)
+    }
+}
+
+mat-menu {
+    padding: 8px!important;
+    margin-bottom: 0px !important;
+}
+
+.mat-card-wrapper {
+    justify-content: center;
+    margin-bottom: 0px !important;
+    margin-top: -60px;
+}
+
+mat-card {
+    margin: 10px;
+    padding: 15px!important;
+    h4 {
+        display: inline-block;
+        color: $mainBlack;
+        margin: 3px!important;
+    }
+    span {
+        font-size: 13px;
+    }
+    .dataWrapper {
+        margin-bottom: 10px;
+    }
+}
+
+span {
+    display: block;
+}
+
+.boldy {
+    font-weight: bold;
+    font-size: 14px!important;
+    +span {
+        margin-bottom: 10px;
+    }
+}
+
+.mat-card-wrapper {
+    display: flex;
+}
+
+select {
+    margin: 10px auto;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px groove palevioletred;
+    box-shadow: 2px 5px 8px palevioletred;
+    color: #333;
+}
+
+#hand {
+    width: 50px;
+    align-self: center;
+    animation: fall .6s ease-in infinite alternate;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-25px) scale(1);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(13px) scale(.9);
+        opacity: 1;
+    }
+}
+
+.bigCards {
+    width: 25%;
+}
+
+#footer {
+    p {
+        font-size: 12px;
+    }
+}
